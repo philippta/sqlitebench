@@ -1,0 +1,47 @@
+
+Summary:
+  Total:	9.8333 secs
+  Slowest:	0.3027 secs
+  Fastest:	0.0001 secs
+  Average:	0.0048 secs
+  Requests/sec:	10169.5135
+  
+  Total data:	2269400 bytes
+  Size/request:	22 bytes
+
+Response time histogram:
+  0.000 [1]	|
+  0.030 [99255]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.061 [93]	|
+  0.091 [54]	|
+  0.121 [46]	|
+  0.151 [10]	|
+  0.182 [20]	|
+  0.212 [61]	|
+  0.242 [1]	|
+  0.272 [0]	|
+  0.303 [47]	|
+
+
+Latency distribution:
+  10% in 0.0012 secs
+  25% in 0.0034 secs
+  50% in 0.0039 secs
+  75% in 0.0046 secs
+  90% in 0.0075 secs
+  95% in 0.0107 secs
+  99% in 0.0189 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0001 secs, 0.0001 secs, 0.3027 secs
+  DNS-lookup:	0.0003 secs, 0.0000 secs, 0.0878 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0019 secs
+  resp wait:	0.0015 secs, 0.0001 secs, 0.2888 secs
+  resp read:	0.0000 secs, 0.0000 secs, 0.0035 secs
+
+Status code distribution:
+  [200]	99588 responses
+
+Error distribution:
+  [412]	Get "http://localhost:8080": EOF
+
