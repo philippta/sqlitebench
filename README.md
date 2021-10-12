@@ -1,23 +1,16 @@
-# SQLite/HTTP Server Performance Benchmark
+<h1 align="center">
+<br />
+SQLite/HTTP Server Performance Benchmark
+<br /><br />
+</h1>
 
-For Go there are several packages for interacting with SQLite databases.
-This benchmark shows the read performance of each implementation.
+This benchmark provides a overview of the different SQLite driver performances available in Go. For benchmarking a simple HTTP server is used to perform random read queries on the database.
 
-### Tested packages:
-- [crawshaw.io/sqlite](https://github.com/crawshaw/sqlite)
-- [github.com/mattn/go-sqlite3](https://github.com/mattn/go-sqlite3)
-- [modernc.org/sqlite](https://gitlab.com/cznic/sqlite)
-- [zombiezen.com/go/sqlite](https://github.com/zombiezen/go-sqlite)
+For benchmarking the [hey](https://github.com/rakyll/hey) load generator is used to call the HTTP server (with 50 concurrent requests).
 
-### Characteristics:
-- `crawshaw.io/sqlite` uses CGo to interact with a SQLite database and implements a custom interface.
-- `github.com/mattn/go-sqlite3` uses CGo to interact with a SQLite database and implements the `database/sql` interface.
-- `modernc.org/sqlite` is a pure Go implementation of SQLite and implements the `database/sql` interface.
-- `zombiezen.com/go/sqlite` is a pure Go implementation of SQLite and implements a custom interface.
+### Driver Overview
 
-### Overview
-
-Package | Uses CGo | database/sql
+Package | Uses CGo | Is driver for `database/sql`
 :------ | :-----: | :-----:
 crawshaw.io/sqlite | Yes | No
 github.com/mattn/go-sqlite3 | Yes | Yes
@@ -26,7 +19,7 @@ zombiezen.com/go/sqlite | No | No
 
 ## Implementation
 
-The implementation consists of a simple HTTP server that runs a single select query on the SQLite database on each request.
+The implementation consists of a simple HTTP server that runs a single select query on the SQLite database for each request.
 ```sql
 SELECT * FROM foo WHERE rowid = ? -- where ? is a random number between 1 and 10000
 ```
